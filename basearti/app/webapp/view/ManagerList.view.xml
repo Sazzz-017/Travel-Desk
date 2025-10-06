@@ -1,0 +1,35 @@
+<mvc:View controllerName="myprom.controller.ManagerList"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m">
+    <Page title="Manager - Travel Requests">
+        <content>
+            <Table id="mgrRequests" items="{/TravelRequests}">
+                <columns>
+                    <Column><Text text="Employee"/></Column>
+                    <Column><Text text="Destination"/></Column>
+                    <Column><Text text="Start Date"/></Column>
+                    <Column><Text text="End Date"/></Column>
+                    <Column><Text text="Purpose"/></Column>
+                    <Column><Text text="Status"/></Column>
+                    <Column><Text text="Action"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{employee/name}"/>
+                            <Text text="{destination}"/>
+                            <Text text="{startDate}"/>
+                            <Text text="{endDate}"/>
+                            <Text text="{purpose}"/>
+                            <Text text="{status}"/>
+                            <HBox>
+                                <Button text="Approve" type="Accept" press="onApprove"/>
+                                <Button text="Reject" type="Reject" press="onReject"/>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

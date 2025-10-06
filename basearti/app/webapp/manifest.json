@@ -1,0 +1,116 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "myprom",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap-ux/fiori-freestyle-writer:basic",
+      "version": "0.21.10"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/TravelService/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "myprom.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "myprom.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "home",
+          "pattern": "",
+          "target": "home"
+        },
+        {
+          "name": "employeeCreate",
+          "pattern": "employee/create",
+          "target": "employeeCreate"
+        },{ "name": "travelCreate", "pattern": "travel/create/{employeeId}", "target": "travelCreate" }, { "name": "manager", "pattern": "manager", "target": "manager" }
+      ],
+      "targets": {
+        "home": { "viewName": "Home" },
+        "employeeCreate": { "viewName": "EmployeeCreate" },
+        "travelCreate": { "viewName": "TravelRequestCreate" },
+        "manager": { "viewName": "ManagerList" }
+      }
+    },
+    "rootView": {
+      "viewName": "myprom.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<mvc:View controllerName="myprom.controller.TravelRequestCreate" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page title="Create Travel Request">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Input id="destination" placeholder="Destination"/>
+                <DatePicker id="startDate" displayFormat="yyyy-MM-dd"/>
+                <DatePicker id="endDate" displayFormat="yyyy-MM-dd"/>
+                <TextArea id="purpose" rows="4" placeholder="Purpose"/>
+                <Button text="Submit Request" press="onSubmit"/>
+                <Title text="Previous Requests"/>
+                <Table id="requestsTable" items="{path:'/TravelRequests', parameters:{'$filter':''}}">
+                    <columns>
+                        <Column><Text text="Dest"/></Column>
+                        <Column><Text text="Start"/></Column>
+                        <Column><Text text="End"/></Column>
+                        <Column><Text text="Status"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{destination}"/>
+                                <Text text="{startDate}"/>
+                                <Text text="{endDate}"/>
+                                <Text text="{status}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

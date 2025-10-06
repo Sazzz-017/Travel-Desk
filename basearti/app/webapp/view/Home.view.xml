@@ -1,0 +1,16 @@
+<mvc:View controllerName="myprom.controller.Home"
+          xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+          xmlns="sap.m">
+    <Page id="page" title="{i18n>hometitle}">
+        <FlexBox id="flx" width="100%" height="100%" alignItems="Center" justifyContent="Center">
+            <Panel id="pnl" headerText="Select Credentials" width="auto">
+                <VBox id="vbox1" class="myVBoxCard" alignItems="Center">
+                    <HBox id="hbox1" class="myHBoxPanel" justifyContent="SpaceAround" width="100%">
+                        <Button id="btnemp" text="Employee" class="sapUiSmallMarginBegin" press="onEmployeePress" type="Emphasized"></Button>
+                        <Button id="btnmng" text="Manager" class="sapUiSmallMarginBegin" press="onManagerPress" type="Emphasized"></Button>
+                    </HBox>
+                </VBox>
+            </Panel>
+        </FlexBox>
+    </Page>
+</mvc:View>

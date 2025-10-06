@@ -1,0 +1,20 @@
+{
+    "name": "myapp.mypro",
+    "scripts": {
+        "build": "mbt build --mtar myapp.mypro.mtar",
+        "build:workspaces": "npm run build --workspaces --if-present",
+        "deploy": "cf deploy mta_archives/myapp.mypro.mtar --retries 0",
+        "lint": "npm run lint --workspaces --if-present",
+        "ui5lint": "npm run ui5lint --workspaces --if-present",
+        "start:myprom": "npm start --workspace myprom"
+    },
+    "dependencies": {
+        "mbt": "^1"
+    },
+    "workspaces": [
+        "myprom"
+    ],
+    "devDependencies": {
+        "@sap/cds-dk": "^9.3.2"
+    }
+}
